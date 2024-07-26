@@ -31,7 +31,7 @@ userSchema.pre("save", function (next){
 userSchema.static('matchPasswordAndCreateToken', async function( email, password){
     const user = await this.findOne({email});
     if(!user) throw new Error('User not found!');
-    console.log(user);
+    // console.log(user);
     const salt = user.salt;
     const  hashedPassword = user.password;
     const userProvidedHash = createHmac('sha256', salt)
