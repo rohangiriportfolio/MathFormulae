@@ -4,7 +4,6 @@ import path from "path";
 import mongoose from 'mongoose';
 import cookieParser from "cookie-parser";
 import moment from "moment";
-import mobileDetect from "mobile-detect";
 import { contributeModel as contributeModelSample } from './main/model/contributionData.js';
 import { userModel as userModelSample } from './main/model/userData.js';
 import { cookieMiddleFunc as cookieMiddleFuncVar } from './main/service/cookieMiddleWare.js';
@@ -50,6 +49,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cookieMiddleFuncVar.validateCookie("token"));
 app.use(express.json());
+app.use('/sitemap.xml', express.static('sitemap.xml'));
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./main/views"));
