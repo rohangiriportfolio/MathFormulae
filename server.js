@@ -199,14 +199,3 @@ app.post('/signin', async (req, res) => {
 app.use((req, res) => {
     res.status(404).render('error_page');
 });
-
-app.get('*', (req, res, next) => {
-    const md = new mobileDetect(req.headers['user-agent']);
-    if (md.mobile()) {
-      // Mobile device detected, prevent desktop site rendering
-      res.redirect('/mobile'); // or render mobile-specific content
-    } else {
-      next(); // Proceed with desktop site rendering
-    }
-  });
-  
