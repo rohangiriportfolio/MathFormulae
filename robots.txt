@@ -1,0 +1,10 @@
+User-agent: Googlebot
+Disallow: /private-page
+Disallow: /another-private-page
+Crawl-delay: 10
+
+User-agent: Bingbot
+Disallow: /private-page
+Allow: /another-page
+
+Sitemap: /sitemap.xml
